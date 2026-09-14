@@ -26,6 +26,9 @@ jobs:
           
           # Make sure to replace usheerf/testcse with your actual repo path if it changes!
           spec-url: 'https://raw.githubusercontent.com/usheerf/testcse/main/specs/payment-refund-api-openapi.yaml'
+
+          # This disables the creation of the secondary ci.yml workflow to bypass the GitHub token restriction
+          generate-ci-workflow: 'false'
           
           # Moved secrets from 'env:' to 'with:' so the action can read them
           postman-api-key: ${{ secrets.POSTMAN_API_KEY }}
