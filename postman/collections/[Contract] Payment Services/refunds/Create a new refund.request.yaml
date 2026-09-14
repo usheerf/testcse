@@ -1,0 +1,33 @@
+$kind: http-request
+description: |
+  Initiates a refund for a previously captured payment transaction. The refund
+  can be for the full amount or a partial amount. The refund status will be
+  'pending' initially and transition to 'completed' or 'failed' based on
+  processing results.
+
+  **Business Rules:**
+  - Refunds can only be issued for transactions in 'captured' status
+  - Partial refunds must not exceed the original transaction amount
+  - Refunds cannot be created more than 180 days after the original transaction
+  - Maximum of 5 refunds per transaction
+url: "{{baseUrl}}/refunds"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "transactionId": "txn_1234567890abcdef",
+      "amount": null,
+      "reason": "Customer requested refund",
+      "notifyCustomer": true,
+      "metadata": {
+        "initiatedBy": "admin@example.com",
+        "ticketNumber": "TKT-12345"
+      }
+    }
+settings: {}
+examples: ./.resources/Create a new refund.resources/examples
+order: 1000

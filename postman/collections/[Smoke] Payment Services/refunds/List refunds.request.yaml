@@ -1,0 +1,68 @@
+$kind: http-request
+description: |
+  Retrieves a paginated list of refunds. Supports filtering by transaction ID,
+  status, date range, and amount range. Results are sorted by creation date
+  in descending order (newest first).
+url: "{{baseUrl}}/refunds?transactionId=txn_1234567890abcdef&status=pending&startDate=2024-01-01T00:00:00Z&endDate=2024-01-31T23:59:59Z&page=1&pageSize=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: transactionId
+    value: txn_1234567890abcdef
+    disabled: false
+    description: Filter refunds by transaction ID
+  - key: status
+    value: pending
+    disabled: false
+    description: Filter refunds by status
+  - key: startDate
+    value: 2024-01-01T00:00:00Z
+    disabled: false
+    description: Filter refunds created on or after this date
+  - key: endDate
+    value: 2024-01-31T23:59:59Z
+    disabled: false
+    description: Filter refunds created on or before this date
+  - key: page
+    value: "1"
+    disabled: false
+    description: Page number for pagination (1-based)
+  - key: pageSize
+    value: "20"
+    disabled: false
+    description: Number of items per page
+body:
+  type: text
+  content: ""
+scripts:
+  - type: afterResponse
+    code: |-
+      // [Smoke] Auto-generated test assertions
+
+      pm.test('Status code is not an error (2xx or 3xx)', function () {
+          // Smoke is a generic liveness check, not a contract: a 3xx redirect is a
+          // legitimate non-error response, so assert < 400 rather than strict 2xx.
+          pm.expect(pm.response.code, "expected a non-error HTTP status (< 400)").to.be.below(400);
+      });
+
+      pm.test('Response time is acceptable', function () {
+          var threshold = parseInt(pm.environment.get('RESPONSE_TIME_THRESHOLD') || '2000', 10);
+          pm.expect(pm.response.responseTime).to.be.below(threshold);
+      });
+
+      pm.test('Response body is not empty', function () {
+          var bodyless = pm.response.code === 204 || pm.response.code === 205 || pm.response.code === 304 || pm.request.method === 'HEAD';
+          var contentLength = pm.response.headers.get('Content-Length');
+          // A legitimate empty-body response (e.g. a 200/201 with Content-Length: 0)
+          // must not false-fail this generic smoke check.
+          if (contentLength !== null && contentLength !== undefined && String(contentLength).trim() === '0') { return; }
+          if (!bodyless) {
+              var body = pm.response.text();
+              pm.expect(body.length).to.be.above(0);
+          }
+      });
+    language: text/javascript
+settings: {}
+examples: ./.resources/List refunds.resources/examples
+order: 2000

@@ -1,0 +1,13 @@
+version: 2
+workspace:
+  id: d5bd8e36-cbb8-4238-80b9-73905232e6e9
+canonical:
+  collections:
+    ../postman/collections/Payment Services: 58227169-9ce13000-03d5-5d10-8505-c24e73a10989
+    ../postman/collections/[Smoke] Payment Services: 58227169-9c214121-fe10-58ac-99bf-41b6d056b21c
+    ../postman/collections/[Contract] Payment Services: 58227169-fc730205-17f5-534f-bbd2-bb9b954f94d1
+  environments:
+    ../postman/environments/prod.postman_environment.json: 58227169-69ecb4ee-606d-4066-b623-e69edd22f6b9
+  specs:
+    spec-url:https://raw.githubusercontent.com/usheerf/testcse/main/specs/payment-refund-api-openapi.yaml: 3e8a9e41-e1f4-4f79-b4af-0826fd46a363
+    ../specs/payment-refund-api-openapi.yaml: 3e8a9e41-e1f4-4f79-b4af-0826fd46a363

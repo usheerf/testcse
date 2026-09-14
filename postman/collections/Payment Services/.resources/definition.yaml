@@ -1,0 +1,29 @@
+$kind: collection
+description: |-
+  Comprehensive API for managing payment refunds in a financial services platform.
+  This API handles refund creation, status tracking, cancellation, and reporting for
+  payment transactions processed through the authorization and capture workflow.
+
+  **Authentication:**
+  - External partners: OAuth 2.0 (Bearer token)
+  - Internal services: JWT token (Bearer token)
+
+  **Rate Limits:**
+  - Standard tier: 100 requests/minute
+  - Enterprise tier: 1000 requests/minute
+
+
+  Contact Support:
+   Name: Payment Platform Team
+   Email: payment-platform@example.com
+variables:
+  baseUrl: https://api.payments.example.com/v2
+auth:
+  - id: e845d27a-edc0-469b-8880-d21d6d4ef0d8
+    type: oauth2
+    name: oauth2 auth
+    credentials:
+      accessTokenUrl: https://auth.example.com/oauth2/token
+      authUrl: https://auth.example.com/oauth2/authorize
+      scope: refunds:read refunds:write refunds:admin
+      grant_type: authorization_code

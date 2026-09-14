@@ -1,0 +1,19 @@
+$kind: http-request
+description: |
+  Retrieves detailed information about a specific refund by its ID.
+  Includes full status history, processing details, and related transaction information.
+url: "{{baseUrl}}/refunds/:refundId"
+method: GET
+headers:
+  Accept: application/json
+pathVariables:
+  - key: refundId
+    value: rfnd_abc123def456
+    disabled: false
+    description: Unique identifier for the refund
+body:
+  type: text
+  content: ""
+settings: {}
+examples: ./.resources/Get refund details.resources/examples
+order: 1000

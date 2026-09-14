@@ -1,0 +1,45 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/refunds/:refundId/cancel"
+  method: POST
+  headers:
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+    - key: Authorization
+      value: <token>
+      description: "Added as a part of security scheme: oauth2"
+  pathVariables:
+    - key: refundId
+      value: rfnd_abc123def456
+      disabled: false
+      description: Unique identifier for the refund
+  body:
+    type: json
+    content: |-
+      {
+        "reason": "Customer changed mind and wants to keep the item"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "REFUND_CANNOT_BE_CANCELLED",
+        "message": "Only pending refunds can be cancelled",
+        "details": {
+          "refundId": "rfnd_abc123def456",
+          "currentStatus": "processing",
+          "allowedStatuses": [
+            "pending"
+          ]
+        },
+        "code": "BUSINESS_RULE_VIOLATION",
+        "timestamp": "2024-01-15T10:30:00Z"
+      }
+order: 2000

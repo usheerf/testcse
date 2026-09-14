@@ -1,0 +1,32 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/health"
+  method: GET
+  headers:
+    - key: Accept
+      value: application/json
+    - key: Authorization
+      value: <token>
+      description: "Added as a part of security scheme: oauth2"
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "status": "healthy",
+        "timestamp": "2024-01-15T10:30:00Z",
+        "version": "2.1.0",
+        "services": {
+          "database": "operational",
+          "paymentGateway": "operational",
+          "notificationService": "operational"
+        }
+      }
+order: 1000

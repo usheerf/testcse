@@ -1,0 +1,24 @@
+$kind: http-request
+description: |
+  Cancels a refund that is in 'pending' status. Once a refund has started
+  processing or is completed, it cannot be cancelled. The refund will be
+  immediately moved to 'cancelled' status.
+url: "{{baseUrl}}/refunds/:refundId/cancel"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: refundId
+    value: rfnd_abc123def456
+    disabled: false
+    description: Unique identifier for the refund
+body:
+  type: json
+  content: |-
+    {
+      "reason": "Customer changed mind and wants to keep the item"
+    }
+settings: {}
+examples: ./.resources/Cancel a pending refund.resources/examples
+order: 1000

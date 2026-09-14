@@ -1,0 +1,20 @@
+$kind: http-request
+description: |
+  Retrieves the current status of a refund. This is a lightweight endpoint
+  optimized for frequent polling. Returns minimal data compared to the full
+  refund details endpoint.
+url: "{{baseUrl}}/refunds/:refundId/status"
+method: GET
+headers:
+  Accept: application/json
+pathVariables:
+  - key: refundId
+    value: rfnd_abc123def456
+    disabled: false
+    description: Unique identifier for the refund
+body:
+  type: text
+  content: ""
+settings: {}
+examples: ./.resources/Get refund status.resources/examples
+order: 1000

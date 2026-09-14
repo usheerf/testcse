@@ -1,0 +1,45 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/refunds"
+  method: POST
+  headers:
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+    - key: Authorization
+      value: <token>
+      description: "Added as a part of security scheme: oauth2"
+  body:
+    type: json
+    content: |-
+      {
+        "transactionId": "txn_1234567890abcdef",
+        "amount": null,
+        "reason": "Customer requested refund",
+        "notifyCustomer": true,
+        "metadata": {
+          "initiatedBy": "admin@example.com",
+          "ticketNumber": "TKT-12345"
+        }
+      }
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "RATE_LIMIT_EXCEEDED",
+        "message": "Rate limit exceeded. Please retry after the specified time",
+        "details": {
+          "limit": 100,
+          "window": "1 minute",
+          "retryAfter": 45
+        },
+        "code": "RATE_LIMIT_ERROR",
+        "timestamp": "2024-01-15T10:30:00Z"
+      }
+order: 7000

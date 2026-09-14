@@ -1,0 +1,14 @@
+$kind: http-request
+description: |
+  Returns the health status of the refund service. Useful for monitoring
+  and load balancer health checks.
+url: "{{baseUrl}}/health"
+method: GET
+headers:
+  Accept: application/json
+body:
+  type: text
+  content: ""
+settings: {}
+examples: ./.resources/Health check.resources/examples
+order: 1000

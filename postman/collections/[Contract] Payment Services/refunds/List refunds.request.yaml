@@ -1,0 +1,40 @@
+$kind: http-request
+description: |
+  Retrieves a paginated list of refunds. Supports filtering by transaction ID,
+  status, date range, and amount range. Results are sorted by creation date
+  in descending order (newest first).
+url: "{{baseUrl}}/refunds?transactionId=txn_1234567890abcdef&status=pending&startDate=2024-01-01T00:00:00Z&endDate=2024-01-31T23:59:59Z&page=1&pageSize=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: transactionId
+    value: txn_1234567890abcdef
+    disabled: false
+    description: Filter refunds by transaction ID
+  - key: status
+    value: pending
+    disabled: false
+    description: Filter refunds by status
+  - key: startDate
+    value: 2024-01-01T00:00:00Z
+    disabled: false
+    description: Filter refunds created on or after this date
+  - key: endDate
+    value: 2024-01-31T23:59:59Z
+    disabled: false
+    description: Filter refunds created on or before this date
+  - key: page
+    value: "1"
+    disabled: false
+    description: Page number for pagination (1-based)
+  - key: pageSize
+    value: "20"
+    disabled: false
+    description: Number of items per page
+body:
+  type: text
+  content: ""
+settings: {}
+examples: ./.resources/List refunds.resources/examples
+order: 2000

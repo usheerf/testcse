@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "collections": [
+    {
+      "role": "baseline",
+      "collectionPath": "postman/collections/Payment Services",
+      "cloudId": "58227169-9ce13000-03d5-5d10-8505-c24e73a10989",
+      "payloadDigest": "b391ab67be90d1c1879da4761f422abbba4bd9d7baccbe305a537db15eeb7f42",
+      "artifactDigest": "8304cd240bdec29dd2b65d51f8f05346c188b6db14ccdb7980498c22bea681f9"
+    },
+    {
+      "role": "smoke",
+      "collectionPath": "postman/collections/[Smoke] Payment Services",
+      "cloudId": "58227169-9c214121-fe10-58ac-99bf-41b6d056b21c",
+      "payloadDigest": "4cf5ce80b95994a95a165cb8586298e14455b9afb58047fc545a44320b54b64c",
+      "artifactDigest": "3631ae6bfd8b0e5cdea8a9cf25dfd0faf56aed5251ab6e85f760f4658828715f"
+    },
+    {
+      "role": "contract",
+      "collectionPath": "postman/collections/[Contract] Payment Services",
+      "cloudId": "58227169-fc730205-17f5-534f-bbd2-bb9b954f94d1",
+      "payloadDigest": "2ef513882bb01324815c4920bbe938dab03a33f21642ee0347541a175a334636",
+      "artifactDigest": "73a9431c87a7e7b768e8057c979ae5dc19c1f96d64a4f65cee8e8e55713c0be1"
+    }
+  ]
+}
