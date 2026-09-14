@@ -1,0 +1,30 @@
+name: Onboard Payment Refund API to Postman
+
+on:
+  workflow_dispatch: # Allows manual trigger for the demo
+  push:
+    branches:
+      - main
+    paths:
+      - 'specs/payment-refund-api-openapi.yaml'
+
+jobs:
+  postman-onboarding:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required for postman-repo-sync-action to commit generated files
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Postman API Onboarding
+        uses: postman-cs/postman-api-onboarding-action@main
+        with:
+          spec-url: 'https://raw.githubusercontent.com/usheerf/testcse/specs/payment-refund-api-openapi.yaml'
+          workspace-name: 'Payment Services'
+          workspace-type: 'team'
+        env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
+          POSTMAN_ACCESS_TOKEN: ${{ secrets.POSTMAN_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
