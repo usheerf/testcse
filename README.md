@@ -14,7 +14,7 @@ When scaling this across 50 services, it is critical to separate the platform te
 
 *   **Universal (Platform-owned):** The GitHub Actions workflow structure, Postman authentication (API Key & Access Token secrets), and the generation logic for smoke/contract tests.
 *   **Service-Specific (App Team-owned):** The target `project-name`, the OpenAPI spec, and environment variables. 
-*   **The `baseUrl` Pattern:** By design, the automation generates the Postman Environment with an empty `baseUrl`. This is a feature, not a bug—it respects developer state, allowing engineers to set `baseUrl` to `localhost` without CI/CD overwriting it on the next run. For production deployments, the platform CI/CD pipeline dynamically injects the real AWS API Gateway URL using the `env-runtime-urls-json` input.
+*   **The `baseUrl` Pattern:** By design, the automation generates the Postman Environment with an empty `baseUrl`. This is a feature, not a bug, it respects developer state, allowing engineers to set `baseUrl` to `localhost` without CI/CD overwriting it on the next run. For production deployments, the platform CI/CD pipeline dynamically injects the real AWS API Gateway URL using the `env-runtime-urls-json` input.
 
 ## 3. Generated Checks vs. Business Logic
 The automation generates baseline, smoke, and contract testing collections automatically.
