@@ -21,17 +21,14 @@ The automation generates baseline, smoke, and contract testing collections autom
 *   **What the checks infer:** The automation validates API contracts (schema validation, data types, required fields) and basic availability (200 OK responses). It guarantees the API shape matches the OpenAPI specification.
 *   **What requires service-specific knowledge:** The automation *cannot* infer business rules. For example, looking at the Payment API, it cannot automatically test that a partial refund doesn't exceed the original amount, that a transaction is under 180 days old, or that a transaction is strictly in the 'captured' state. Application teams must add these semantic assertions to the generated baseline collections.
 
-## 4. Unblocking Teams with Auto-Mocking
-Because the AWS infrastructure is often the slowest part of a new service rollout, this automation automatically provisions a Postman Mock Server URL based on the OpenAPI examples. Front-end developers can instantly plug this Mock URL into their generated environment's `baseUrl` and begin building UI against the exact contract the backend team promised, eliminating infrastructure bottlenecks.
-
-## 5. Customer Ops Team Requirements
+## 4. Customer Ops Team Requirements
 To replicate this org-wide, the customer's 4-person platform team must:
 1. Provision a machine-user Postman API Key and Access Token.
 2. Inject these tokens into their GitHub Organization as encrypted secrets.
 3. Distribute the standard `.github/workflows/onboard-payment-api.yml` template to application teams.
 4. (For GitLab teams) Configure GitLab CI variables and inject the Postman CLI binary into their runner images.
 
-## 6. Adaptation Analysis: Claims Processing API (GitLab CI & ECS)
+## 5. Adaptation Analysis: Claims Processing API (GitLab CI & ECS)
 The second provided spec, **Claims Processing API**, runs on mixed ECS/Lambda infrastructure and utilizes **GitLab CI** instead of GitHub Actions. 
 
 **What stays the same:**
