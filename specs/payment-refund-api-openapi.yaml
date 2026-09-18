@@ -210,7 +210,7 @@ paths:
                   summary: Invalid or expired token
                   value:
                     error: "UNAUTHORIZED"
-                    message: "Invalid or expired authentication tokenn"
+                    message: "Invalid or expired authentication token"
                     details:
                       tokenType: "JWT"
                       expirationTime: "2024-01-15T09:00:00Z"
