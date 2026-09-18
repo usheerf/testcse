@@ -6,21 +6,21 @@
       "collectionPath": "postman/collections/Payment Services",
       "cloudId": "58227169-9ce13000-03d5-5d10-8505-c24e73a10989",
       "payloadDigest": "b391ab67be90d1c1879da4761f422abbba4bd9d7baccbe305a537db15eeb7f42",
-      "artifactDigest": "e2fabf56d0123196c07e01138561c83b3d9a50d8acaf43b55339f9ead5d15b77"
+      "artifactDigest": "bdd6f99a14639e01d291b21478532898fc176f708bdd1d044a6d2d8ee0320858"
     },
     {
       "role": "smoke",
       "collectionPath": "postman/collections/[Smoke] Payment Services",
       "cloudId": "58227169-9c214121-fe10-58ac-99bf-41b6d056b21c",
       "payloadDigest": "4cf5ce80b95994a95a165cb8586298e14455b9afb58047fc545a44320b54b64c",
-      "artifactDigest": "391bc3a90fe40b25b77e546887b9ff5cf4e11e9b1b87cd21a07745a14cb19007"
+      "artifactDigest": "4c2f0c096f00f2e6e26e6063866fe96d3bdad8c6a77ff3bdba049e0f768213ce"
     },
     {
       "role": "contract",
       "collectionPath": "postman/collections/[Contract] Payment Services",
       "cloudId": "58227169-fc730205-17f5-534f-bbd2-bb9b954f94d1",
       "payloadDigest": "2ef513882bb01324815c4920bbe938dab03a33f21642ee0347541a175a334636",
-      "artifactDigest": "81ce7dd7dd51ae46a48d4ff81c43f01b38f5402e1052e48a3c5106f03a54d706"
+      "artifactDigest": "a5da2ce8a2a901d8c211906335d2d2671bf0cd85545b2d49c9b8bc44fd3a4508"
     }
   ]
 }
