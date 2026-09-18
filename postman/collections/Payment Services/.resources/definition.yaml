@@ -19,7 +19,7 @@ description: |-
 variables:
   baseUrl: https://api.payments.example.com/v2
 auth:
-  - id: e845d27a-edc0-469b-8880-d21d6d4ef0d8
+  - id: f0819c5a-33fd-4b04-9173-2cc312c0254c
     type: oauth2
     name: oauth2 auth
     credentials:
